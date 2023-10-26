@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/indexStyle.css">
+    <link rel="stylesheet" href="../styles/informacoesStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    <title>Health Planner</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img id="logo" src="../components/images/Logo-Dark.png" alt="Logo">
+        </div>
+
+        <div class="button-header class">
+        <a href="#" id="button-header-profile" class="button-header profile on" onclick="InnerRedirectProfile()">Perfil</a>
+        <a href="#" id="button-header-controller" class="button-header controller" onclick="InnerRedirectController()">Controle</a>
+        <a href="#" id="button-header-information" class="button-header information" onclick="InnerRedirectInformation()">Dicas</a>
+        </div>
+    </header>
+
+    <section id="profile">
+        <div id="profile-buttons" class="button profile-general hidden-content">
+            <a href="#" onclick="Modal.openConfirmDelete()" class="button section profile delete">Excluir Perfil</a>
+        </div>
+
+        <div id="profile-body" class="profile-body hidden-content">
+            <div class="profile-stats">
+                <div class="inner-profile-stats"></div>
+                <div id="gainloss-stats" class="gainloss">
+                    <p class="stats-title">Diferença de Peso</p>
+                    <div class="gainloss-stats">
+                        <div class="img-gainloss">
+                            <img id="gain" class="hidden-content" src="./components/images/Ganho de Peso.png" alt="Fígura de Ganho de Peso">
+                            <img id="loss" class="hidden-content" src="./components/images/Componentes_Perda de Peso.png" alt="Figura de Perda de Peso"></div>
+                        <p class="stats-body gainloss">0 kg</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-body">
+                <p id="name" class="profile-name">Nome</p>
+                <img id="body-figure" src="./components/images/Corpo-Dark.png" alt="Figura Corpo Humano">
+            </div>
+
+            <div class="table-profile">
+                <h1 id="calory-table-title">Gasto Calórico</h1>
+                <table id="calory-table">
+                    <tbody>
+                    </tbody>
+                </table>
+                <h1 id="table-title">Histórico de Peso</h1>
+                <table id="weight-history">
+                    <thead>
+                        <tr>
+                            <th>Peso</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1000 cal</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p class="footer-text">Health.Planner - 2023</p>
+    </footer>
+
+    <div id="ov-create-profile" class="overlay create-profile">
+        <div class="modal">
+            <div class="form">
+                <h2>Criar Perfil</h2>
+                <form action="" onsubmit="NewProfileForm.submit(event)">
+                    <div class="input-group">
+                        <label class="sr-only" for="create-profile-name">Nome</label>
+                        <input id="new-profile-name" class="input" type="text" id="create-profile-name" name="Nome do Perfil" placeholder="Nome">
+                    </div>
+                    <div class="input-group">
+                        <label class="sr-only" for="create-profile-height">Altura</label>
+                        <input id="new-profile-height" class="input" type="number" data-js="height" id="create-profile-height" name="Altura do Perfil" placeholder="Altura (cm)">
+                    </div>
+                    <div class="input-group">
+                        <label class="sr-only" for="create-profile-weight">Peso</label>
+                        <input id="new-profile-weight" class="input" type="number" step="0.01" id="create-profile-weight" name="Peso do Perfil" placeholder="Peso (kg)">
+                    </div>
+                    <small class="help">Para especificar as gramas, use , (vírgula)</small>
+                    <div class="input-group actions">
+                        <a href="#" onclick="Modal.close()" class="button cancel">Cancelar</a>
+                        <button class="button confirm">Confirmar</button>
+                    </div>
+                    <small class="error hidden-content">Todos os campos devem ser preenchidos</small>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="ov-update-weight" class="overlay update-weight">
+        <div class="modal">
+            <div class="form">
+                <h2>Atualizar Peso</h2>
+                <form action="" onsubmit="preventDefault()">
+                    <div class="input-group">
+                        <label class="sr-only" for="update-profile-weight"></label>
+                        <input class="input" type="number" id="update-profile-weight" name="Novo Peso" placeholder="Novo Peso (kg)">
+                    </div>
+                    <small class="help">Para especificar as gramas, use , (vírgula)</small>
+                    <div class="input-group actions">
+                        <a href="#" onclick="Modal.close()" class="button cancel">Cancelar</a>
+                        <button onclick="UpdateWeightForm.submit(event)" class="button confirm">Confirmar</button>
+                    </div>
+                    <small class="error hidden-content">Todos os campos devem ser preenchidos</small>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay confirm-delete">
+        <div class="modal">
+            <p>Tem certeza que deseja excluir o perfil?</p>
+            <div class="input-group actions">
+                <a href="#" onclick="Modal.close()" class="button cancel">Cancelar</a>
+                <button onclick="Profiles.remove(0)" class="button confirm">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/indexStyle.css">
+    <link rel="stylesheet" href="../styles/informacoesStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    <title>Health Planner</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img id="logo" src="../components/images/Logo-Dark.png" alt="Logo">
+        </div>
+
+        <div class="button-header class">
+        <a href="#" id="button-header-profile" class="button-header profile" onclick="InnerRedirectProfile()">Perfil</a>
+        <a href="#" id="button-header-controller" class="button-header controller on" onclick="InnerRedirectController()">Controle</a>
+        <a href="#" id="button-header-information" class="button-header information" onclick="InnerRedirectInformation()">Dicas</a>
+        </div>
+    </header>
+
+    <section id="controller">
+        <div class="button controller-div">
+            <a href="#" onclick="Modal.openAddExercise()" class="button section controller exercise add">Adicionar Exercício</a>
+        </div>
+
+        <div class="controller-body">
+            <table id="exercises-added">
+                <thead class="hidden-content">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Series</th>
+                        <th>Reps</th>
+                        <th>Tempo</th>
+                        <th>Data</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+            <div class="controller-stats">
+                <div class="total-exercises">
+                    <p class="stats-title">Total de Exercícios Realizados</p>
+                    <p class="stats-body te">0</p>
+                </div>
+                <div class="total-time">
+                    <p class="stats-title">Tempo Exercitando</p>
+                    <div class="total-time-stats">
+                        <p class="stats-body tt">0</p>
+                        <p class="stats-complement">horas</p>
+                    </div>
+                </div>
+                <div class="total-days">
+                    <p class="stats-title">Dias Exercitando</p>
+                    <div class="total-days-stats">
+                        <p class="stats-body td">0</p>
+                        <p class="stats-complement">dias</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p class="footer-text">Health.Planner - 2023</p>
+    </footer>
+
+    <div id="ov-add-exercise" class="overlay add-exercise">
+        <div class="modal">
+            <div class="form">
+                <h2>Adicionar Exercício</h2>
+                <form action="" onsubmit="preventDefault()">
+                    <div class="input-group">
+                        <label class="sr-only" for="exercises-list">Exercício</label>
+                        <div class="input-exercises">
+                            <select id="exercises-list" class="input" name="exercises-list">
+                                <option value="default" selected disabled hidden>Exercício</option>
+                                <!-- <option value="Bicicleta">Bicicleta</option>
+                                <option value="Abdominal">Abdominal</option>
+                                <option value="Flexão">Flexão</option>
+                                <option value="Panturrilha">Panturrilha</option>
+                                <option value="Barra-Fixa">Barra Fixa</option> -->
+                            </select>
+                            <button onclick="Modal.openNewExercise()" class="button-input-exercises">+</button>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label class="sr-only" for="series-amount">Número de Séries</label>
+                        <input id="add-exercise-series" class="input" type="number" step="1" id="series-amount" name="Quantidade de Séries" placeholder="0">
+                    </div>
+                    <div class="input-group">
+                        <label class="sr-only" for="reps-amount">Número de Repetições por Série</label>
+                        <input id="add-exercise-reps" class="input" type="number" step="1" id="reps-amount" name="Quantidade de Repetições por Série" placeholder="0">
+                    </div>
+                    <div class="input-group">
+                        <label class="sr-only" for="time-spent">Tempo de Realização do Exercício (em minutos)</label>
+                        <input id="add-exercise-time" class="input" type="number" step="1" id="time-spent" name="Tempo de Realização" placeholder="0">
+                    </div>
+                    <div class="input-group">
+                        <label class="sr-only" for="exercise-date">Data</label>
+                        <input id="add-exercise-date" class="input" type="date" id="exercise-date" name="Data de Realização do Exercício" placeholder="DD/MM/AAAA">
+                    </div>
+                    <div class="input-group actions">
+                        <a href="#" onclick="Modal.close()" class="button cancel">Cancelar</a>
+                        <button onclick="Modal.close();NewRegisterForm.submit(event);" class="button confirm">Confirmar</button>
+                    </div>
+                    <small class="error hidden-content">Todos os campos devem ser preenchidos</small>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="ov-create-exercise" class="overlay create-exercise">
+        <div class="modal">
+            <div class="form">
+                <h2>Criar Exercício</h2>
+                <form action="" onsubmit="preventDefault()">
+                    <div class="input-group">
+                        <label class="sr-only" for="exercise-name">Nome</label>
+                        <input class="input" type="text" id="exercise-name" name="Nome do Exercício" placeholder="Nome">
+                    </div>
+                    <div class="input-group actions">
+                        <a href="#" onclick="Modal.closeNewEx()" class="button cancel">Cancelar</a>
+                        <button onclick="Modal.closeNewEx();NewExerciseForm.submit(event);" class="button confirm">Confirmar</button>
+                    </div>
+                    <small class="error hidden-content">Todos os campos devem ser preenchidos</small>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/script.js"></script>
+</body>
+</html>

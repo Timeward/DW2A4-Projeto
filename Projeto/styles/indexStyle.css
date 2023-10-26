@@ -64,6 +64,17 @@ section {
     text-decoration: none;
 }
 
+.button-header.information {
+    border-top: 2px solid var(--brandpurple);
+    border-left: 1px solid var(--brandpurple);
+    width: 50vw;
+    padding-top: 7px;
+    padding-bottom: 9px;
+    background-color: var(--header);
+    text-align: center;
+    text-decoration: none;
+}
+
 .button-header.on {
     background-color: var(--brandpurple);
 }

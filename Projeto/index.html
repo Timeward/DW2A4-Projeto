@@ -18,14 +18,20 @@
         </div>
 
         <div class="button-header class">
-        <a href="#" id="button-header-profile" class="button-header profile on">Perfil</a>
-        <a href="#" id="button-header-controller" class="button-header controller">Controle</a>
-        <a href="#" id="button-header-information" class="button-header information">Dicas</a>
+        <a href="#" id="button-header-profile" class="button-header profile on" onclick="RedirectProfile()">Perfil</a>
+        <a href="#" id="button-header-controller" class="button-header controller" onclick="RedirectController()">Controle</a>
+        <a href="#" id="button-header-information" class="button-header information" onclick="RedirectInformation()">Dicas</a>
         </div>
     </header>
+
+    <section>
+    <a href="#" onclick="Modal.openNewProfile()" id="button-profile-new" class="button-profile-new">Criar Perfil <p class="plus">+</p></a>
+    </section>
 
     <footer>
         <p class="footer-text">Health.Planner - 2023</p>
     </footer>
+
+    <script src="./scripts/script.js"></script>
 </body>
 </html>
