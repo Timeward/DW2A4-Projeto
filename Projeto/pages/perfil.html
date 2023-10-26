@@ -25,19 +25,21 @@
     </header>
 
     <section id="profile">
-        <div id="profile-buttons" class="button profile-general hidden-content">
+        <a href="#" onclick="Modal.openNewProfile()" id="button-profile-new" class="button-profile-new hidden-content">Criar Perfil <p class="plus">+</p></a>
+
+        <div id="profile-buttons" class="button profile-general ">
             <a href="#" onclick="Modal.openConfirmDelete()" class="button section profile delete">Excluir Perfil</a>
         </div>
 
-        <div id="profile-body" class="profile-body hidden-content">
+        <div id="profile-body" class="profile-body ">
             <div class="profile-stats">
                 <div class="inner-profile-stats"></div>
                 <div id="gainloss-stats" class="gainloss">
                     <p class="stats-title">Diferença de Peso</p>
                     <div class="gainloss-stats">
                         <div class="img-gainloss">
-                            <img id="gain" class="hidden-content" src="./components/images/Ganho de Peso.png" alt="Fígura de Ganho de Peso">
-                            <img id="loss" class="hidden-content" src="./components/images/Componentes_Perda de Peso.png" alt="Figura de Perda de Peso"></div>
+                            <img id="gain" class="hidden-content" src="../components/images/Ganho de Peso.png" alt="Fígura de Ganho de Peso">
+                            <img id="loss" class="hidden-content" src="../components/images/Componentes_Perda de Peso.png" alt="Figura de Perda de Peso"></div>
                         <p class="stats-body gainloss">0 kg</p>
                     </div>
                 </div>
@@ -45,13 +47,16 @@
 
             <div class="img-body">
                 <p id="name" class="profile-name">Nome</p>
-                <img id="body-figure" src="./components/images/Corpo-Dark.png" alt="Figura Corpo Humano">
+                <img id="body-figure" src="../components/images/Corpo-Dark.png" alt="Figura Corpo Humano">
             </div>
 
             <div class="table-profile">
                 <h1 id="calory-table-title">Gasto Calórico</h1>
                 <table id="calory-table">
                     <tbody>
+                        <tr>
+                            <td>1000 cal</td>
+                        </tr>
                     </tbody>
                 </table>
                 <h1 id="table-title">Histórico de Peso</h1>
@@ -63,9 +68,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1000 cal</td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
