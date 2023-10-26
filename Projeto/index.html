@@ -9,23 +9,28 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.min.js"></script>
+    <script src="./scripts/app.js"></script>
     <title>Health Planner</title>
 </head>
-<body>
+<body ng-app="App">
     <header>
         <div class="logo">
             <img id="logo" src="./components/images/Logo-Dark.png" alt="Logo">
         </div>
 
         <div class="button-header class">
-        <a href="#" id="button-header-profile" class="button-header profile on" onclick="RedirectProfile()">Perfil</a>
-        <a href="#" id="button-header-controller" class="button-header controller" onclick="RedirectController()">Controle</a>
-        <a href="#" id="button-header-information" class="button-header information" onclick="RedirectInformation()">Dicas</a>
+        <a href="#/" id="button-header-profile" class="button-header profile on">Perfil</a>
+        <a href="#/controle" id="button-header-controller" class="button-header controller" >Controle</a>
+        <a href="#/informacoes" id="button-header-information" class="button-header information" >Dicas</a>
         </div>
     </header>
 
-    <section id="home">
-    </section>
+    <div ng-view></div>
+
+    <!-- <section id="home" >
+    </section> -->
 
     <footer>
         <p class="footer-text">Health.Planner - 2023</p>

@@ -4,25 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/indexStyle.css">
-    <link rel="stylesheet" href="../styles/informacoesStyle.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    
     <title>Health Planner</title>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img id="logo" src="../components/images/Logo-Dark.png" alt="Logo">
-        </div>
-
-        <div class="button-header class">
-        <a href="#" id="button-header-profile" class="button-header profile on" onclick="RedirectProfile()">Perfil</a>
-        <a href="#" id="button-header-controller" class="button-header controller" onclick="RedirectController()">Controle</a>
-        <a href="#" id="button-header-information" class="button-header information" onclick="RedirectInformation()">Dicas</a>
-        </div>
-    </header>
+   
 
     <section id="profile">
         <a href="#" onclick="Modal.openNewProfile()" id="button-profile-new" class="button-profile-new hidden-content">Criar Perfil <p class="plus">+</p></a>
@@ -38,8 +24,8 @@
                     <p class="stats-title">Diferença de Peso</p>
                     <div class="gainloss-stats">
                         <div class="img-gainloss">
-                            <img id="gain" class="hidden-content" src="../components/images/Ganho de Peso.png" alt="Fígura de Ganho de Peso">
-                            <img id="loss" class="hidden-content" src="../components/images/Componentes_Perda de Peso.png" alt="Figura de Perda de Peso"></div>
+                            <img id="gain" class="hidden-content" src="components/images/Ganho de Peso.png" alt="Fígura de Ganho de Peso">
+                            <img id="loss" class="hidden-content" src="components/images/Componentes_Perda de Peso.png" alt="Figura de Perda de Peso"></div>
                         <p class="stats-body gainloss">0 kg</p>
                     </div>
                 </div>
@@ -47,7 +33,7 @@
 
             <div class="img-body">
                 <p id="name" class="profile-name">Nome</p>
-                <img id="body-figure" src="../components/images/Corpo-Dark.png" alt="Figura Corpo Humano">
+                <img id="body-figure" src="components/images/Corpo-Dark.png" alt="Figura Corpo Humano">
             </div>
 
             <div class="table-profile">
@@ -74,9 +60,9 @@
         </div>
     </section>
 
-    <footer>
+    <!-- <footer>
         <p class="footer-text">Health.Planner - 2023</p>
-    </footer>
+    </footer> -->
 
     <div id="ov-create-profile" class="overlay create-profile">
         <div class="modal">
@@ -136,6 +122,6 @@
         </div>
     </div>
 
-    <script src="../scripts/script.js"></script>
+    
 </body>
 </html>
