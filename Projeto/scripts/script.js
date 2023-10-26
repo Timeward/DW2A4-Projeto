@@ -49,27 +49,18 @@
 // }
 
 /*=============================== REDIRECTS ===============================*/
+
+// fazer o redirect da home diretamente para o perfil
+
 function RedirectProfile() {
-    location.href="pages/perfil.html";
-}
-
-function RedirectController() {
-    location.href="pages/controle.html";
-}
-
-function RedirectInformation() {
-    location.href="pages/informacoes.html";
-}
-
-function InnerRedirectProfile() {
     location.href="perfil.html";
 }
 
-function InnerRedirectController() {
+function RedirectController() {
     location.href="controle.html";
 }
 
-function InnerRedirectInformation() {
+function RedirectInformation() {
     location.href="informacoes.html";
 }
 
