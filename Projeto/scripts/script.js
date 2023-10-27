@@ -1,67 +1,33 @@
 /*=============================== HEADER BUTTONS ===============================*/
 
-// document.getElementById('button-header-profile').onclick = function() {accessProfile()};
-// function accessProfile() {
-//     var buttonOn = document.getElementById('button-header-profile');
-//     buttonOn.classList.add('on');
-//     var buttonOff = document.getElementById('button-header-controller');
-//     buttonOff.classList.remove('on');
-//     var buttonOff = document.getElementById('button-header-information');
-//     buttonOff.classList.remove('on');
-//     var sectionOn = document.getElementById('profile');
-//     sectionOn.classList.remove('hidden-content');
-//     var sectionOff = document.getElementById('controller');
-//     sectionOff.classList.add('hidden-content')
-//     var sectionOff = document.getElementById('information');
-//     sectionOff.classList.add('hidden-content')
-// }
-
-// document.getElementById('button-header-controller').onclick = function() {accessController()};
-// function accessController() {
-//     var buttonOn = document.getElementById('button-header-controller');
-//     buttonOn.classList.add('on');
-//     var buttonOff = document.getElementById('button-header-profile');
-//     buttonOff.classList.remove('on');
-//     var buttonOff = document.getElementById('button-header-information');
-//     buttonOff.classList.remove('on');
-//     var sectionOn = document.getElementById('controller');
-//     sectionOn.classList.remove('hidden-content');
-//     var sectionOff = document.getElementById('profile');
-//     sectionOff.classList.add('hidden-content')
-//     var sectionOff = document.getElementById('information');
-//     sectionOff.classList.add('hidden-content')
-// }
-
-// document.getElementById('button-header-information').onclick = function() {accessInformation()};
-// function accessInformation() {
-//     var buttonOn = document.getElementById('button-header-information');
-//     buttonOn.classList.add('on');
-//     var buttonOff = document.getElementById('button-header-controller');
-//     buttonOff.classList.remove('on');
-//     var buttonOff = document.getElementById('button-header-profile');
-//     buttonOff.classList.remove('on');
-//     var sectionOn = document.getElementById('information');
-//     sectionOn.classList.remove('hidden-content');
-//     var sectionOff = document.getElementById('controller');
-//     sectionOff.classList.add('hidden-content')
-//     var sectionOff = document.getElementById('profile');
-//     sectionOff.classList.add('hidden-content')
-// }
-
-/*=============================== REDIRECTS ===============================*/
-
-// fazer o redirect da home diretamente para o perfil
-
-function RedirectProfile() {
-    location.href="perfil.html";
+document.getElementById('button-header-profile').onclick = function() {accessProfile()};
+function accessProfile() {
+    var buttonOn = document.getElementById('button-header-profile');
+    buttonOn.classList.add('on');
+    var buttonOff = document.getElementById('button-header-controller');
+    buttonOff.classList.remove('on');
+    var buttonOff = document.getElementById('button-header-information');
+    buttonOff.classList.remove('on');
 }
 
-function RedirectController() {
-    location.href="controle.html";
+document.getElementById('button-header-controller').onclick = function() {accessController()};
+function accessController() {
+    var buttonOn = document.getElementById('button-header-controller');
+    buttonOn.classList.add('on');
+    var buttonOff = document.getElementById('button-header-profile');
+    buttonOff.classList.remove('on');
+    var buttonOff = document.getElementById('button-header-information');
+    buttonOff.classList.remove('on');
 }
 
-function RedirectInformation() {
-    location.href="informacoes.html";
+document.getElementById('button-header-information').onclick = function() {accessInformation()};
+function accessInformation() {
+    var buttonOn = document.getElementById('button-header-information');
+    buttonOn.classList.add('on');
+    var buttonOff = document.getElementById('button-header-controller');
+    buttonOff.classList.remove('on');
+    var buttonOff = document.getElementById('button-header-profile');
+    buttonOff.classList.remove('on');
 }
 
 /*=============================== STORAGES ===============================*/
