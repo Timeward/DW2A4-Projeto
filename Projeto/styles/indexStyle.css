@@ -34,6 +34,32 @@ section {
 
 /*=============================== HEADER ===============================*/
 
+.register{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute; top: 0px; right: 0px
+}
+
+/* .button-corner-login{
+    padding: 20;
+    margin: 10;
+} */
+
+.button-corner-register{
+    display: flex;
+    background-color: var(--brandpurple);
+    border: #171717;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 20px;
+}
+
+.button-corner-register:hover{
+    background-color: var(--background);
+    cursor: pointer;
+}
+
 .button-header.class {
     display: flex;
     flex-direction: row;

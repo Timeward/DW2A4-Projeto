@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <script src="../scripts/cadastroScript.js"></script>
     <title>Health Planner</title>
 </head>
 <body>
@@ -83,8 +83,9 @@
                     </div>
                     <small class="help">Para especificar as gramas, use , (vírgula)</small>
                     <div class="input-group actions">
-                        <a href="#" onclick="Modal.close()" class="button cancel">Cancelar</a>
-                        <button class="button confirm">Confirmar</button>
+                        <a href="#/perfil" onclick="Modal.close()" class="button cancel">Cancelar</a>
+                        <button class="button confirm" onclick="profileRegister()">Confirmar</button>
+                        <!--Botao deve chamar a funcao profileRegister em cadastroScript-->
                     </div>
                     <small class="error hidden-content">Todos os campos devem ser preenchidos</small>
                 </form>
