@@ -10,7 +10,7 @@ function accessProfile() {
     buttonOff.classList.remove('on');
 }
 
-document.getElementById('button-header-controller').onclick = function() {accessController()};
+document.getElementById('button-header-controller').onclick = function() {accessController(), ExApp.init()};
 function accessController() {
     var buttonOn = document.getElementById('button-header-controller');
     buttonOn.classList.add('on');
@@ -99,7 +99,12 @@ const Utils = {
         } else {
             hour = Math.floor(value / 60)
             minutes = value % 60
-            value = `${hour}:${minutes}`
+            if(minutes < 10) {
+                value = `${hour}:0${minutes}`
+            }
+            else {
+                value = `${hour}:${minutes}`
+            }
         } }
         return value
     },
@@ -307,13 +312,13 @@ const Exercises = {
     add(exercise) {
         Exercises.all.push(exercise),
 
-        App.reload()
+        ExApp.reload()
     },
 
     remove(index) {
         Exercises.all.splice(index, 1),
 
-        App.reload()
+        ExApp.reload()
     },
 
     totalRegisters() {
@@ -336,13 +341,12 @@ const Exercises = {
         return total;
     },
 
-    totalDays() {
+    caloryBurn() {
         let total = 0;
 
         Exercises.all.forEach(exercise => {
-            let unique = [...new Set(registers.map(item => item.date))];
-
-            total = unique.length
+            calory = 7 * Weights.all[Weights.all.length - 1] * (Number(exercise.time) / 60)
+            total = total + calory;
         })
 
         return total
@@ -379,13 +383,13 @@ const EXDOM = {
     updateStats() {
         document.querySelector('.stats-body.te').innerHTML = Exercises.totalRegisters()
         document.querySelector('.stats-body.tt').innerHTML = Utils.formatTime(Exercises.totalTime())
-        document.querySelector('.stats-body.td').innerHTML = Exercises.totalDays()
+        document.querySelector('.stats-body.td').innerHTML = Utils.formatStats(Exercises.caloryBurn())
     }
 }
 
   /*=============================== CREATE EXERCISE ===============================*/
 
-const exercises = [
+  const exercises = [
     "Bicicleta",
     "Abdominal",
     "Flexão",
@@ -401,7 +405,7 @@ const NewExercises = {
     add(exercise) {
         NewExercises.all.push(exercise),
 
-        App.reload()
+        ExApp.reload()
     },
 }
 
@@ -763,39 +767,53 @@ const App = {
             DOM.addProfileStats(profile, index)
         })
 
-        Exercises.all.forEach((exercise, index) => {
-            EXDOM.addRegister(exercise, index)
-        })
-
-        NewExercises.all.forEach((exercise, index) => {
-            NEDOM.createExercise(exercise, index)
-        })
-
         Weights.all.forEach((weight, index) => {
             WDOM.addWeightRegister(weight, index)
         })
-
-        EXDOM.updateStats()
 
         WDOM.updateTable()
 
         StorageProfile.set(Profiles.all)
         StorageWeight.set(Weights.all)
-        StorageRegister.set(Exercises.all)
-        StorageExercise.set(NewExercises.all)
-
-        NewExercises.all = StorageExercise.get()
-
     },
 
     reload() {
         DOM.clearProfile()
-        EXDOM.clearExercises()
-        NEDOM.clearExercises()
         WDOM.clearWeights()
 
         App.init()
     }
 }
 
-App.init()
+const ExApp = {
+    init() {
+        setTimeout(function(){Exercises.all.forEach((exercise, index) => {
+            EXDOM.addRegister(exercise, index)
+        })
+    
+        console.log("Aqui")
+    
+        NewExercises.all.forEach((exercise, index) => {
+            NEDOM.createExercise(exercise, index)
+        })
+    
+        EXDOM.updateStats()
+    
+        StorageRegister.set(Exercises.all)
+        StorageExercise.set(NewExercises.all)
+    
+        NewExercises.all = StorageExercise.get()}, 5000)
+    },
+
+    reload() {
+        EXDOM.clearExercises()
+        NEDOM.clearExercises()
+
+        ExApp.init()
+    }
+
+}
+
+// document.getElementById('button-header-controller').onclick = function() {setTimeout(ExApp.init(), 1000)}
+
+// App.init()

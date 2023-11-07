@@ -12,7 +12,7 @@
 
     <section id="controller">
         <div class="button controller-div">
-            <a href="#" onclick="Modal.openAddExercise()" class="button section controller exercise add">Adicionar Exercício</a>
+            <a href="#/controle" onclick="Modal.openAddExercise()" class="button section controller exercise add">Adicionar Exercício</a>
         </div>
 
         <div class="controller-body">
@@ -43,11 +43,11 @@
                         <p class="stats-complement">horas</p>
                     </div>
                 </div>
-                <div class="total-days">
-                    <p class="stats-title">Dias Exercitando</p>
+                <div class="calory-burn">
+                    <p class="stats-title">Gasto Calórico</p>
                     <div class="total-days-stats">
                         <p class="stats-body td">0</p>
-                        <p class="stats-complement">dias</p>
+                        <p class="stats-complement">cal</p>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                         <input id="add-exercise-date" class="input" type="date" id="exercise-date" name="Data de Realização do Exercício" placeholder="DD/MM/AAAA">
                     </div>
                     <div class="input-group actions">
-                        <a href="#" onclick="Modal.close()" class="button cancel">Cancelar</a>
+                        <a href="#/controle" onclick="Modal.close()" class="button cancel">Cancelar</a>
                         <button onclick="Modal.close();NewRegisterForm.submit(event);" class="button confirm">Confirmar</button>
                     </div>
                     <small class="error hidden-content">Todos os campos devem ser preenchidos</small>
@@ -111,7 +111,7 @@
                         <input class="input" type="text" id="exercise-name" name="Nome do Exercício" placeholder="Nome">
                     </div>
                     <div class="input-group actions">
-                        <a href="#" onclick="Modal.closeNewEx()" class="button cancel">Cancelar</a>
+                        <a href="#/controle" onclick="Modal.closeNewEx()" class="button cancel">Cancelar</a>
                         <button onclick="Modal.closeNewEx();NewExerciseForm.submit(event);" class="button confirm">Confirmar</button>
                     </div>
                     <small class="error hidden-content">Todos os campos devem ser preenchidos</small>
@@ -120,6 +120,7 @@
         </div>
     </div>
 
+    <script src="../scripts/controleScript.js"></script>
     
 </body>
 </html>

@@ -11,10 +11,10 @@
    
 
     <section id="profile">
-        <a href="#" onclick="Modal.openNewProfile()" id="button-profile-new" class="button-profile-new hidden-content">Criar Perfil <p class="plus">+</p></a>
+        <a href="#/" onclick="Modal.openNewProfile()" id="button-profile-new" class="button-profile-new hidden-content">Criar Perfil <p class="plus">+</p></a>
 
         <div id="profile-buttons" class="button profile-general ">
-            <a href="#" onclick="Modal.openConfirmDelete()" class="button section profile delete">Excluir Perfil</a>
+            <a href="#/" onclick="Modal.openConfirmDelete()" class="button section profile delete">Excluir Perfil</a>
         </div>
 
         <div id="profile-body" class="profile-body ">
@@ -37,14 +37,6 @@
             </div>
 
             <div class="table-profile">
-                <h1 id="calory-table-title">Gasto Calórico</h1>
-                <table id="calory-table">
-                    <tbody>
-                        <tr>
-                            <td>1000 cal</td>
-                        </tr>
-                    </tbody>
-                </table>
                 <h1 id="table-title">Histórico de Peso</h1>
                 <table id="weight-history">
                     <thead>
@@ -104,7 +96,7 @@
                     </div>
                     <small class="help">Para especificar as gramas, use , (vírgula)</small>
                     <div class="input-group actions">
-                        <a href="#" onclick="Modal.close()" class="button cancel">Cancelar</a>
+                        <a href="#/" onclick="Modal.close()" class="button cancel">Cancelar</a>
                         <button onclick="UpdateWeightForm.submit(event)" class="button confirm">Confirmar</button>
                     </div>
                     <small class="error hidden-content">Todos os campos devem ser preenchidos</small>
@@ -117,7 +109,7 @@
         <div class="modal">
             <p>Tem certeza que deseja excluir o perfil?</p>
             <div class="input-group actions">
-                <a href="#" onclick="Modal.close()" class="button cancel">Cancelar</a>
+                <a href="#/" onclick="Modal.close()" class="button cancel">Cancelar</a>
                 <button onclick="Profiles.remove(0)" class="button confirm">Confirmar</button>
             </div>
         </div>
