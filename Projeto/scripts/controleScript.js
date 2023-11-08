@@ -22,57 +22,62 @@ const StorageExercise = {
 
 /*=============================== UTILS ===============================*/
 
-const Utils = {
-    formatStats(value) {
-        value = Number(value) / 100
-        return value
-    },
+// const Utils = {
+//     formatStats(value) {
+//         value = Number(value) / 100
+//         return value
+//     },
 
-    formatWeight(value) {
-        value = Number(value.replace(/\,\./g, "")) * 100
-        return value
-    },
+//     formatWeight(value) {
+//         value = Number(value.replace(/\,\./g, "")) * 100
+//         return value
+//     },
 
-    formatDate(date) {
-        const splittedDate = date.split("-")
-        return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`
-    },
+//     formatDate(date) {
+//         const splittedDate = date.split("-")
+//         return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`
+//     },
 
-    formatTime(value) {
-        if(value < 10) {
-            value = `0:0${value}`
-        } else {
-        if(value < 60) {
-            value = `0:${value}`
-        } else {
-            hour = Math.floor(value / 60)
-            minutes = value % 60
-            value = `${hour}:${minutes}`
-        } }
-        return value
-    },
+//     formatTime(value) {
+//         if(value < 10) {
+//             value = `0:0${value}`
+//         } else {
+//         if(value < 60) {
+//             value = `0:${value}`
+//         } else {
+//             hour = Math.floor(value / 60)
+//             minutes = value % 60
+//             if(minutes < 10) {
+//                 value = `${hour}:0${minutes}`
+//             }
+//             else {
+//                 value = `${hour}:${minutes}`
+//             }
+//         } }
+//         return value
+//     },
 
-    formatName(value) {
+//     formatName(value) {
 
-        value = String(value)
+//         value = String(value)
 
-        return value
-    },
+//         return value
+//     },
 
-    dateToday() {
-        const date = new Date()
+//     dateToday() {
+//         const date = new Date()
 
-        let currentDay = String(date.getDate()).padStart(2, '0')
+//         let currentDay = String(date.getDate()).padStart(2, '0')
 
-        let currentMonth = String(date.getMonth()+1).padStart(2, '0')
+//         let currentMonth = String(date.getMonth()+1).padStart(2, '0')
 
-        let currentYear = date.getFullYear()
+//         let currentYear = date.getFullYear()
 
-        let currentDate = `${currentDay}/${currentMonth}/${currentYear}`
+//         let currentDate = `${currentDay}/${currentMonth}/${currentYear}`
 
-        return currentDate
-    }
-}
+//         return currentDate
+//     }
+// }
 
 /*=============================== CONTROLLER BUTTONS ===============================*/
    /*=============================== ADD EXERCISE ===============================*/
@@ -82,13 +87,13 @@ const Utils = {
     add(exercise) {
         Exercises.all.push(exercise),
 
-        App.reload()
+        ExApp.reload()
     },
 
     remove(index) {
         Exercises.all.splice(index, 1),
 
-        App.reload()
+        ExApp.reload()
     },
 
     totalRegisters() {
@@ -111,13 +116,12 @@ const Utils = {
         return total;
     },
 
-    totalDays() {
+    caloryBurn() {
         let total = 0;
 
         Exercises.all.forEach(exercise => {
-            let unique = [...new Set(registers.map(item => item.date))];
-
-            total = unique.length
+            calory = 7 * Weights.all[Weights.all.length - 1] * (Number(exercise.time) / 60)
+            total = total + calory;
         })
 
         return total
@@ -154,7 +158,7 @@ const EXDOM = {
     updateStats() {
         document.querySelector('.stats-body.te').innerHTML = Exercises.totalRegisters()
         document.querySelector('.stats-body.tt').innerHTML = Utils.formatTime(Exercises.totalTime())
-        document.querySelector('.stats-body.td').innerHTML = Exercises.totalDays()
+        document.querySelector('.stats-body.td').innerHTML = Utils.formatStats(Exercises.caloryBurn()).toFixed(2)
     }
 }
   
@@ -176,7 +180,7 @@ const NewExercises = {
     add(exercise) {
         NewExercises.all.push(exercise),
 
-        App.reload()
+        ExApp.reload()
     },
 }
 
@@ -337,9 +341,8 @@ const NewExerciseForm = {
 
 /*=============================== APP ===============================*/
 
-const App = {
+const ExApp = {
     init() {
-        console.log("Aqui")
         Exercises.all.forEach((exercise, index) => {
             EXDOM.addRegister(exercise, index)
         })
@@ -349,14 +352,19 @@ const App = {
         })
 
         EXDOM.updateStats()
+
+        StorageRegister.set(Exercises.all)
+        StorageExercise.set(NewExercises.all)
+    
+        NewExercises.all = StorageExercise.get()
     },
 
     reload() {
         EXDOM.clearExercises()
         NEDOM.clearExercises()
 
-        App.init()
+        ExApp.init()
     }
 }
 
-App.init()
+ExApp.init()
