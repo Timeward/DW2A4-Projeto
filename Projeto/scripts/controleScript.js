@@ -61,7 +61,7 @@ const StorageExercise = {
         let total = 0;
 
         Exercises.all.forEach(exercise => {
-            calory = 7 * Weights.all[Weights.all.length - 1] * (Number(exercise.time) / 60)
+            calory = 7 * StorageWeight.get() * (Number(exercise.time) / 60)
             total = total + calory;
         })
 
