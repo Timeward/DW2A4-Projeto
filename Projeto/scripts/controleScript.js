@@ -20,65 +20,6 @@ const StorageExercise = {
     }
 }
 
-/*=============================== UTILS ===============================*/
-
-// const Utils = {
-//     formatStats(value) {
-//         value = Number(value) / 100
-//         return value
-//     },
-
-//     formatWeight(value) {
-//         value = Number(value.replace(/\,\./g, "")) * 100
-//         return value
-//     },
-
-//     formatDate(date) {
-//         const splittedDate = date.split("-")
-//         return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`
-//     },
-
-//     formatTime(value) {
-//         if(value < 10) {
-//             value = `0:0${value}`
-//         } else {
-//         if(value < 60) {
-//             value = `0:${value}`
-//         } else {
-//             hour = Math.floor(value / 60)
-//             minutes = value % 60
-//             if(minutes < 10) {
-//                 value = `${hour}:0${minutes}`
-//             }
-//             else {
-//                 value = `${hour}:${minutes}`
-//             }
-//         } }
-//         return value
-//     },
-
-//     formatName(value) {
-
-//         value = String(value)
-
-//         return value
-//     },
-
-//     dateToday() {
-//         const date = new Date()
-
-//         let currentDay = String(date.getDate()).padStart(2, '0')
-
-//         let currentMonth = String(date.getMonth()+1).padStart(2, '0')
-
-//         let currentYear = date.getFullYear()
-
-//         let currentDate = `${currentDay}/${currentMonth}/${currentYear}`
-
-//         return currentDate
-//     }
-// }
-
 /*=============================== CONTROLLER BUTTONS ===============================*/
    /*=============================== ADD EXERCISE ===============================*/
 
@@ -343,6 +284,7 @@ const NewExerciseForm = {
 
 const ExApp = {
     init() {
+        // console.log(Exercises.caloryBurn());
         Exercises.all.forEach((exercise, index) => {
             EXDOM.addRegister(exercise, index)
         })
