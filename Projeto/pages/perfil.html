@@ -64,15 +64,18 @@
                 <form action="" onsubmit="NewProfileForm.submit(event)">
                     <div class="input-group">
                         <label class="sr-only" for="create-profile-name">Nome</label>
-                        <input id="new-profile-name" class="input" type="text" id="create-profile-name" name="Nome do Perfil" placeholder="Nome">
+                        <input id="new-profile-name" class="input" type="text" id="create-profile-name" 
+                        name="Nome do Perfil" pattern="[A-Za-z]+" placeholder="Nome" required>
                     </div>
                     <div class="input-group">
                         <label class="sr-only" for="create-profile-height">Altura</label>
-                        <input id="new-profile-height" class="input" type="number" data-js="height" id="create-profile-height" name="Altura do Perfil" placeholder="Altura (cm)">
+                        <input id="new-profile-height" class="input" type="number" data-js="height" id="create-profile-height" 
+                        name="Altura do Perfil" pattern="[0-9]+" placeholder="Altura (cm)" required>
                     </div>
                     <div class="input-group">
                         <label class="sr-only" for="create-profile-weight">Peso</label>
-                        <input id="new-profile-weight" class="input" type="number" step="0.01" id="create-profile-weight" name="Peso do Perfil" placeholder="Peso (kg)">
+                        <input id="new-profile-weight" class="input" type="number" step="0.01" id="create-profile-weight"
+                        name="Peso do Perfil" pattern="[0-9]+" placeholder="Peso (kg)" required>
                     </div>
                     <small class="help">Para especificar as gramas, use , (vírgula)</small>
                     <div class="input-group actions">
